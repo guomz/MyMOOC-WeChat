@@ -1,0 +1,11 @@
+<!--pages/article/article.wxml-->
+<view class='container'>
+  <scroll-view class='article-container' scroll-y='true' scroll-top='{{currentPos}}' bindscroll='onScroll'>
+    <view class='title'>
+      <text>{{currentArticle.articleTitle}}</text>
+    </view>
+    <view class='content'>
+      <text>{{currentArticle.articleContent}}</text>
+    </view>
+  </scroll-view>
+</view>

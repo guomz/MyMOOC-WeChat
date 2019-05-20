@@ -1,0 +1,68 @@
+/* pages/course/course.wxss */
+.page{
+  padding-top: 0rpx;
+  margin-bottom: 50rpx;
+  height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+
+.page__hd{
+  padding-bottom: 150rpx;
+}
+
+.page__title{
+  padding-bottom: 50rpx;
+}
+
+.weui-tab__content{
+    padding-top: 20px;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+.course-name{
+  padding-bottom: 80rpx;
+}
+.weui-cells__title{
+  text-align: left;
+}
+.weui-cell__bd{
+  text-align: left;
+}
+
+.movie-button{
+  display: flex;
+  flex-direction: row;
+  padding-top: 30rpx;
+}
+
+.course-desc{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 50rpx;
+}
+
+.teacher-desc{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 50rpx;
+}
+.movie-name{
+  margin-top: 80rpx;
+  text-align: center;
+}
+
+.movie-container{
+  margin-left: 25rpx;
+}
+.comment-button{
+  padding-top: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  padding-bottom: 50rpx;
+}
+.comment-container{
+  padding-bottom: 20rpx;
+}

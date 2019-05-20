@@ -1,0 +1,123 @@
+<!--pages/course/course.wxml-->
+<view class='page'>
+  <view class="page__bd">
+    <block wx:if="{{hasMovie}}">
+      <view class='movie-name'>当前学习章节：{{currentMovie.movieName}}</view>
+      <view class='movie-container'>
+        <video id='myVideo' src='{{currentMovie.movieUrl}}' bindtimeupdate='timeUpdate'></video>
+      </view>
+      <!--调整视频集数-->
+      <view class='movie-button'>
+        <button type='primary' bindtap='preMovie'>上一节</button>
+        <button type='primary' bindtap='nextMovie'>下一节</button>
+      </view>
+    </block>
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <!--视频部分-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <block wx:if='{{hasMovie}}'>
+            <!-- <view class='movie-name'>当前学习章节：{{currentMovie.movieName}}</view>
+            <video id='myVideo' src='{{currentMovie.movieUrl}}' bindtimeupdate='timeUpdate'></video> -->
+            <!--调整视频集数-->
+            <!-- <view class='movie-button'>
+              <button type='primary' bindtap='preMovie'>上一节</button>
+              <button type='primary' bindtap='nextMovie'>下一节</button>
+            </view> -->
+            <!--视频列表-->
+            <view class='page__bd'>
+              <view class="weui-cells__title">章节列表</view>
+              <view class="weui-cells weui-cells_after-title">
+                <scroll-view class='movie-container' scroll-y='true'>
+                  <block wx:for="{{movieList}}">
+                    <view class="weui-cell">
+                      <view class="weui-cell__hd">
+                        <image src="/images/movie.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                      </view>
+                      <view class="weui-cell__bd">{{item.movieName}}</view>
+                      <view class="weui-cell__ft" data-movieid='{{item.movieId}}' bindtap='chooseMovie'>观看</view>
+                    </view>
+                  </block>
+                </scroll-view>
+              </view>
+              <block wx:if="{{hasArticle}}">
+                <view class="weui-cells__title">本节文档</view>
+                <view class="weui-cells weui-cells_after-title">
+                  <block wx:for="{{articleList}}">
+                    <view class="weui-cell">
+                      <view class="weui-cell__hd">
+                        <image src="{{item.articleType=='pdf'? '/images/article.png':'/images/PPT.png'}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                      </view>
+                      <view class="weui-cell__bd">{{item.articleTitle}}</view>
+                      <view class="weui-cell__ft" data-articleid='{{item.articleId}}' bindtap='onTap'>阅读</view>
+                    </view>
+                  </block>
+                </view>
+              </block>
+            </view>
+          </block>
+          <block wx:else>课程未上线</block>
+        </view>
+        <!--简介-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class='course-name'>课程名称：{{course.courseName}}</view>
+          <view class='collected_container'>
+            <wux-avatar src="{{isCollected? '/images/collected.png':'/images/collected-anti.png'}}" bindtap='handleCollected'></wux-avatar>
+            <view>点击收藏</view>
+          </view>
+          <view class='course-desc'>
+            <wux-card title="课程简介" extra="">
+              <view slot="body">{{course.courseDesc}}</view>
+            </wux-card>
+          </view>
+          <view class='teacher-desc'>
+            <wux-card title="讲师简介" extra="{{teacher.teacherName}}">
+              <view slot="body">
+                <view>
+                  <wux-avatar src="{{teacher.avatarUrl}}"></wux-avatar>
+                </view>
+                <view> {{teacher.teacherDesc}}</view>
+              </view>
+            </wux-card>
+          </view>
+        </view>
+        <!--评论部分-->
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <!--评论提交部分-->
+          <view class="weui-cells__title">添加评论</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="请输入文字" style="height: 3.3em" bindinput='commentInput'/>
+                <view class="weui-textarea-counter"></view>
+              </view>
+            </view>
+          </view>
+          <view class='comment-button'>
+            <button class="weui-btn" type="primary" bindtap='submitComment'>提交评论</button>
+          </view>
+          <!--评论区展示-->
+          <view>
+            <block wx:for="{{commentList}}">
+              <view class='comment-container'>
+                <wux-card full="{{ true }}" title="{{item.user.nickName}}" thumb="{{item.user.avatarUrl}}">
+                  <view slot="body">{{item.commentContent}}</view>
+                  <view slot="footer">{{item.commentDate}}</view>
+                </wux-card>
+              </view>
+            </block>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

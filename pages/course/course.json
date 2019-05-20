@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "wux-card": "/dist/card/index",
+    "wux-avatar":"/dist/avatar/index"
+  }
+}

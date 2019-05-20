@@ -1,0 +1,5 @@
+/* pages/article/article.wxss */
+.article-container{
+  height: 1000rpx;
+  margin-top: 0rpx;
+}
