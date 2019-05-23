@@ -91,5 +91,15 @@ Page({
     wx.navigateTo({
       url: '/pages/more/more',
     })
+  },
+
+/**
+ * 点击轮播图跳转
+ */
+  onTap:function(e){
+    var courseId=e.currentTarget.dataset.postid;
+    wx.navigateTo({
+      url: '/pages/course/course?courseId='+courseId,
+    })
   }
 })

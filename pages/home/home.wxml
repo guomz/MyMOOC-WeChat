@@ -3,13 +3,13 @@
   <!--首页头条-->
   <swiper indicator-dots='true' autoplay='true' catchtap='onSwiperTap'>
     <swiper-item>
-      <image src='/images/lesson2.jpg' data-postid='3'></image>
+      <image src='/images/lesson2.jpg' data-postid='2' bindtap='onTap'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/lesson3.jpg' data-postid='4'></image>
+      <image src='/images/lesson3.jpg' data-postid='1' bindtap='onTap'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/lesson1.jpg' data-postid='5'></image>
+      <image src='/images/lesson1.jpg' data-postid='3' bindtap='onTap'></image>
     </swiper-item>
   </swiper>
 
