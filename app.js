@@ -35,7 +35,9 @@ App({
   },
   globalData: {
     userInfo: {},
-    baseUrl:"http://127.0.0.1/MyMOOC",
+    //baseUrl:"http://127.0.0.1/MyMOOC",
+    baseUrl:'http://39.105.145.179/MyMOOC',
+    //baseUrl:"http://192.168.1.107/MyMOOC",
     openid:'',
     userId:null
   }

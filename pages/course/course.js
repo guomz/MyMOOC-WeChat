@@ -92,8 +92,9 @@ Page({
             commentList:res.data.commentList
             //articlePos:res.data.articlePos
           });
+          console.log("seeking");
           that.videoContext.seek(that.data.currentPos);
-
+          console.log("seeking complete");
 
         }
       }
