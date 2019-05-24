@@ -4,7 +4,7 @@
     <block wx:if="{{hasMovie}}">
       <view class='movie-name'>当前学习章节：{{currentMovie.movieName}}</view>
       <view class='movie-container'>
-        <video id='myVideo' src='{{currentMovie.movieUrl}}' bindtimeupdate='timeUpdate'></video>
+        <video id='myVideo' src='{{currentMovie.movieUrl}}' bindtimeupdate='timeUpdate' initial-time='{{currentPos}}'></video>
       </view>
       <!--调整视频集数-->
       <view class='movie-button'>
